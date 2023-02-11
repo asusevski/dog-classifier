@@ -25,7 +25,7 @@ augs = Compose(
 def preprocess_images(examples):
   images = examples['image']  
   images = [np.array(augs(image.convert('RGB'))) for image in images]
-  inputs = feature_extractor(images=images) 
+  inputs = feature_extractor(images=images)
   examples['pixel_values'] = inputs['pixel_values']
   return examples
 
