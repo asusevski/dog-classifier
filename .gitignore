@@ -130,3 +130,9 @@ dmypy.json
 
 # Data
 data/*
+
+# HF trainer stuff
+flagged/*
+models/*
+
+

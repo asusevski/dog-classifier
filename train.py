@@ -6,7 +6,7 @@ from transformers import Trainer, TrainingArguments, AutoFeatureExtractor, AutoM
 
 
 dataset = load_dataset('imagefolder', data_dir="./data/dogs")
-
+ 
 
 model_name = "google/vit-base-patch16-224"
 
@@ -55,7 +55,7 @@ model = AutoModelForImageClassification.from_pretrained(
 
 batch_size = 8
 logging_steps = int(len(train_dataset) // batch_size)
-output_dir = "./models/hf_trainer"
+output_dir = "./models/vit-dog-classifier"
 
 
 training_args = TrainingArguments(
