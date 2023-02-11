@@ -22,15 +22,8 @@ def classify_image(inp):
     # Preprocess
     model_preprocessor_name = "google/vit-base-patch16-224"
     feature_extractor = AutoFeatureExtractor.from_pretrained(model_preprocessor_name)
-    augs = Compose(
-        [
-            ColorJitter(brightness=0.25, contrast=0.25, saturation=0.25, hue=0.4),
-            RandomPerspective(distortion_scale=0.3),
-            ToTensor(),
-        ]
-    )
 
-    inp = np.array(augs(inp.convert('RGB')))
+    inp = np.array(inp.convert('RGB'))
     
     inp = torch.tensor(feature_extractor(images=inp)['pixel_values'])
     preds = model(inp)['logits']
